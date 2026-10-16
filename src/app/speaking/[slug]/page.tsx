@@ -56,7 +56,7 @@ export default async function EventPage({ params }: PageProps<"/speaking/[slug]"
 
       <article>
         <header className="relative isolate overflow-hidden pt-28 pb-14 sm:pt-40 sm:pb-20">
-          <div aria-hidden className="absolute inset-0 -z-10 bg-grid mask-fade-x opacity-50" />
+          <div aria-hidden className="absolute inset-0 -z-10 bg-grid" />
           <div aria-hidden className="absolute inset-0 -z-10 bg-glow" />
           <Container className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
             <div className="animate-enter">

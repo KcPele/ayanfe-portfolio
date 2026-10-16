@@ -10,7 +10,7 @@ type PageHeaderProps = {
 export function PageHeader({ kicker, title, description, children }: PageHeaderProps) {
   return (
     <section className="relative isolate overflow-hidden pt-32 pb-14 sm:pt-44 sm:pb-20">
-      <div aria-hidden className="absolute inset-0 -z-10 bg-grid mask-fade-x opacity-50" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-grid" />
       <div aria-hidden className="absolute inset-0 -z-10 bg-glow" />
       <Container>
         <div className="max-w-4xl animate-enter">

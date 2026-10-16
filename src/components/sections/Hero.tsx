@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 export function Hero() {
   return (
     <section className="relative isolate overflow-hidden pt-28 pb-16 sm:pt-36 lg:min-h-[100svh] lg:pt-40 lg:pb-24">
-      <div aria-hidden className="absolute inset-0 -z-10 bg-grid mask-fade-x opacity-60" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-grid" />
       <div aria-hidden className="absolute inset-0 -z-10 bg-glow" />
 
       <Container className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">

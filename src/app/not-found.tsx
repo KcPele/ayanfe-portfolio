@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 export default function NotFound() {
   return (
     <section className="relative isolate overflow-hidden pt-40 pb-28">
-      <div aria-hidden className="absolute inset-0 -z-10 bg-grid mask-fade-x opacity-50" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-grid" />
       <Container>
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary">Error 404 · Case not found</p>
         <h1 className="mt-5 font-display text-[clamp(2.75rem,8vw,6rem)] leading-[0.95]">

@@ -43,6 +43,9 @@
   /* Supporting */
   --success: #5fd3a2;
   --ring: #e2b155;
+
+  /* Decorative background grid lines (keep very faint) */
+  --grid-line: #f4efe408;
 }
 
 [data-theme="paper"] {
@@ -70,6 +73,8 @@
 
   --success: #0d5c34;
   --ring: #0d5c34;
+
+  --grid-line: #141a170d;
 }
 
 /* Map tokens to Tailwind utilities (bg-background, text-primary, border-border …) */
@@ -178,9 +183,14 @@
 
 @utility bg-grid {
   background-image:
-    linear-gradient(color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px);
-  background-size: 64px 64px;
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 75%);
+  @media (width >= 40rem) {
+    background-size: 64px 64px;
+  }
 }
 
 @utility bg-glow {
