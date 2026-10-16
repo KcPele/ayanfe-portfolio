@@ -1,26 +1,237 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ==========================================================================
+   THEME TOKENS
+   --------------------------------------------------------------------------
+   Every colour on the site comes from these variables. Change a value here
+   and the whole site updates. Components never use raw colour values or
+   Tailwind's default palette (it is disabled below with --color-*: initial).
+
+   To switch theme, set data-theme on <html> (see src/app/layout.tsx).
+   "ink" (dark editorial) is the default; "paper" is a light alternative.
+   ========================================================================== */
+
+:root,
+[data-theme="ink"] {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --background: #0a0c12; /* page background */
+  --surface: #11141d; /* cards, panels */
+  --surface-raised: #181c28; /* hovered / elevated cards */
+  --overlay: #05060a; /* image scrims, lightbox backdrop */
+
+  /* Text */
+  --foreground: #f4efe4; /* primary text (warm paper) */
+  --foreground-muted: #a7acbb; /* secondary text */
+  --foreground-subtle: #6c7285; /* captions, meta */
+
+  /* Lines */
+  --border: #232838;
+  --border-strong: #353b4f;
+
+  /* Brand: brass / gold, the "law" colour */
+  --primary: #e2b155;
+  --primary-strong: #f2c879;
+  --primary-foreground: #14110a;
+
+  /* Brand: electric violet, the "web3" colour (echoes the stage lighting) */
+  --secondary: #8b7bff;
+  --secondary-strong: #a99dff;
+  --secondary-foreground: #0b0a1a;
+
+  /* Supporting */
+  --success: #5fd3a2;
+  --ring: #e2b155;
 }
 
+[data-theme="paper"] {
+  color-scheme: light;
+
+  --background: #f6f1e5;
+  --surface: #fffdf6;
+  --surface-raised: #ffffff;
+  --overlay: #141a17;
+
+  --foreground: #141a17;
+  --foreground-muted: #4c554f;
+  --foreground-subtle: #7b847e;
+
+  --border: #ded5bf;
+  --border-strong: #c9bd9f;
+
+  --primary: #0d5c34;
+  --primary-strong: #0a4a2a;
+  --primary-foreground: #fffdf6;
+
+  --secondary: #8a6d1f;
+  --secondary-strong: #6f5718;
+  --secondary-foreground: #fffdf6;
+
+  --success: #0d5c34;
+  --ring: #0d5c34;
+}
+
+/* Map tokens to Tailwind utilities (bg-background, text-primary, border-border …) */
 @theme inline {
+  --color-*: initial;
+
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-overlay: var(--overlay);
+
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-strong: var(--secondary-strong);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-success: var(--success);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+  --font-mono: var(--font-code);
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-enter: enter 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 35%, transparent);
+    color: var(--foreground);
+  }
+
+  .font-display {
+    font-variant-numeric: lining-nums;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ==========================================================================
+   DECORATIVE UTILITIES (all token driven)
+   ========================================================================== */
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@utility bg-glow {
+  background:
+    radial-gradient(60% 50% at 80% 10%, color-mix(in oklab, var(--secondary) 22%, transparent), transparent 70%),
+    radial-gradient(50% 45% at 10% 90%, color-mix(in oklab, var(--primary) 16%, transparent), transparent 70%);
+}
+
+@utility text-gradient {
+  background: linear-gradient(100deg, var(--primary-strong), var(--primary) 40%, var(--secondary-strong));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility scrim-bottom {
+  background: linear-gradient(to top, color-mix(in oklab, var(--overlay) 92%, transparent), transparent 65%);
+}
+
+@utility mask-fade-x {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* Scroll reveal (see components/ui/Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
