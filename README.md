@@ -10,6 +10,26 @@ pnpm build    # production build (all pages are statically prerendered)
 
 Set `NEXT_PUBLIC_SITE_URL` (for example `https://ayanfeolajide.com`) in your hosting environment. Canonical URLs, the sitemap, Open Graph tags and JSON-LD all use it.
 
+## Docker
+
+The app builds to a standalone Node server (`output: "standalone"` in `next.config.ts`) and runs as a non-root user on port 3000.
+
+```bash
+# Build (set your real domain; it is baked into canonical URLs, sitemap and OG tags)
+docker build --build-arg NEXT_PUBLIC_SITE_URL=https://yourdomain.com -t ayanfe-portfolio .
+
+# Run
+docker run -d -p 3000:3000 --name ayanfe-portfolio ayanfe-portfolio
+```
+
+Or with Compose (reads `NEXT_PUBLIC_SITE_URL` and `PORT` from your shell or a `.env` file):
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://yourdomain.com docker compose up -d --build
+```
+
+Content and theme changes need a rebuild of the image. The build downloads Google Fonts, so it needs internet access.
+
 ## Project structure
 
 ```
