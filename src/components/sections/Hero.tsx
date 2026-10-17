@@ -54,20 +54,20 @@ export function Hero() {
         <div className="relative mx-auto w-full max-w-md animate-enter [animation-delay:150ms] lg:max-w-none">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border-strong">
             <Image
-              src="/images/events/web3lagos-2025/panel-colour.jpg"
-              alt="Ayanfeoluwa Olajide speaking on the legal and compliance panel at Web3Lagos"
+              src="/images/events/rwa-tokenization-africa/speaking-closeup.jpg"
+              alt="Ayanfeoluwa Olajide speaking on the State of RWA Tokenization in Africa panel"
               fill
               preload
               sizes="(max-width: 1024px) 90vw, 40vw"
-              className="object-cover object-top"
+              className="object-cover"
             />
           </div>
 
           <div className="absolute -bottom-8 -left-2 w-[42%] overflow-hidden rounded-2xl border-4 border-background sm:-left-10">
             <Image
-              src="/images/events/rwa-tokenization-africa/speaking-portrait.jpg"
-              alt="Ayanfeoluwa on the State of RWA in Africa panel"
-              width={1600}
+              src="/images/events/stellar-west-africa/podium-2.jpg"
+              alt="Ayanfeoluwa at the podium, Stellar West Africa Conference"
+              width={1505}
               height={2000}
               sizes="(max-width: 1024px) 40vw, 18vw"
               className="h-auto w-full"
