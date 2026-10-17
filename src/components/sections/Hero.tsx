@@ -54,12 +54,12 @@ export function Hero() {
         <div className="relative mx-auto w-full max-w-md animate-enter [animation-delay:150ms] lg:max-w-none">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border-strong">
             <Image
-              src="/images/events/filecoin-orbit/speaking.jpg"
-              alt="Ayanfeoluwa Olajide speaking at Filecoin Orbit Ibadan"
+              src="/images/events/web3lagos-2025/panel-colour.jpg"
+              alt="Ayanfeoluwa Olajide speaking on the legal and compliance panel at Web3Lagos"
               fill
               preload
               sizes="(max-width: 1024px) 90vw, 40vw"
-              className="object-cover object-[60%_center]"
+              className="object-cover object-top"
             />
           </div>
 

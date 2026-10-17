@@ -14,7 +14,7 @@ export const siteConfig = {
   firm: "Neomos Solicitors",
   firmRole: "Lead Counsel",
   email: "ayanfe@neomosadvisory.com",
-  ogImage: "/images/events/filecoin-orbit/speaking.jpg",
+  ogImage: "/images/events/web3lagos-2026/presenting-1.jpg",
   keywords: [
     "Web3 lawyer Nigeria",
     "crypto lawyer Lagos",
