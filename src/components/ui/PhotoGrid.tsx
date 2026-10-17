@@ -59,7 +59,7 @@ export function PhotoGrid({ photos, className }: PhotoGridProps) {
               />
               <span
                 aria-hidden
-                className="absolute inset-0 flex items-end scrim-bottom p-4 text-left text-xs leading-snug text-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                className="absolute inset-x-0 bottom-0 bg-background/90 p-3 text-left text-xs leading-snug text-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100"
               >
                 {photo.alt}
               </span>
@@ -72,7 +72,7 @@ export function PhotoGrid({ photos, className }: PhotoGridProps) {
         ref={dialogRef}
         onClose={() => setIndex(null)}
         onClick={(e) => e.target === e.currentTarget && close()}
-        className="m-0 h-dvh max-h-none w-screen max-w-none bg-overlay/95 p-0 text-foreground backdrop:bg-overlay/80"
+        className="m-0 h-dvh max-h-none w-screen max-w-none bg-background p-0 text-foreground backdrop:bg-background"
         aria-label="Photo viewer"
       >
         {current && (
@@ -87,7 +87,7 @@ export function PhotoGrid({ photos, className }: PhotoGridProps) {
             }}
           >
             <div className="flex items-center justify-between p-4">
-              <span className="font-mono text-xs text-foreground-muted">
+              <span className="text-xs text-foreground-muted">
                 {index! + 1} / {photos.length}
               </span>
               <button
@@ -114,7 +114,7 @@ export function PhotoGrid({ photos, className }: PhotoGridProps) {
                     type="button"
                     onClick={() => step(-1)}
                     aria-label="Previous photo"
-                    className="absolute top-1/2 left-3 hidden size-12 -translate-y-1/2 place-items-center rounded-full border border-border-strong bg-background/60 hover:text-primary sm:grid"
+                    className="absolute top-1/2 left-3 hidden size-12 -translate-y-1/2 place-items-center rounded-full border border-border-strong bg-background hover:text-primary sm:grid"
                   >
                     ←
                   </button>
@@ -122,7 +122,7 @@ export function PhotoGrid({ photos, className }: PhotoGridProps) {
                     type="button"
                     onClick={() => step(1)}
                     aria-label="Next photo"
-                    className="absolute top-1/2 right-3 hidden size-12 -translate-y-1/2 place-items-center rounded-full border border-border-strong bg-background/60 hover:text-primary sm:grid"
+                    className="absolute top-1/2 right-3 hidden size-12 -translate-y-1/2 place-items-center rounded-full border border-border-strong bg-background hover:text-primary sm:grid"
                   >
                     →
                   </button>

@@ -17,15 +17,15 @@ export function About() {
               className="object-cover"
             />
           </div>
-          <div className="absolute -right-3 -bottom-6 max-w-[16rem] rounded-2xl border border-border-strong bg-surface p-5 shadow-2xl sm:-right-8">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">Selected</p>
+          <div className="absolute -right-3 -bottom-6 max-w-[16rem] rounded-2xl border border-border-strong bg-surface p-5 sm:-right-8">
+            <p className="label text-primary">Selected</p>
             <p className="mt-2 font-display text-lg leading-snug">Devconnect Scholar by the Ethereum Foundation</p>
           </div>
         </Reveal>
 
         <div className="flex flex-col justify-center">
           <Reveal>
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary">§ About</p>
+            <p className="label text-primary">§ About</p>
             <h2 className="mt-4 font-display text-4xl leading-[1.05] tracking-tight text-balance sm:text-5xl lg:text-6xl">
               {bio.headline}
             </h2>
@@ -43,7 +43,7 @@ export function About() {
               <p className="font-display text-2xl leading-snug italic text-balance sm:text-3xl">
                 &ldquo;{bio.thesis}&rdquo;
               </p>
-              <footer className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-foreground-subtle">
+              <footer className="mt-3 label text-foreground-subtle">
                 The throughline
               </footer>
             </blockquote>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, JetBrains_Mono, Manrope } from "next/font/google";
+import { Inter, Source_Serif_4 } from "next/font/google";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -7,22 +7,15 @@ import { siteConfig } from "@/data/site";
 import { personSchema, websiteSchema } from "@/lib/schema";
 import "./globals.css";
 
-const heading = Fraunces({
+const heading = Source_Serif_4({
   variable: "--font-heading",
   subsets: ["latin"],
   style: ["normal", "italic"],
-  axes: ["opsz", "SOFT"],
   display: "swap",
 });
 
-const body = Manrope({
+const body = Inter({
   variable: "--font-body",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const code = JetBrains_Mono({
-  variable: "--font-code",
   subsets: ["latin"],
   display: "swap",
 });
@@ -69,8 +62,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    // Change data-theme to "paper" for the light theme (tokens live in globals.css)
-    <html lang="en" data-theme="ink" className={`${heading.variable} ${body.variable} ${code.variable}`}>
+    // All colours live in the palette at the top of src/app/globals.css
+    <html lang="en" className={`${heading.variable} ${body.variable}`}>
       <body className="min-h-dvh antialiased">
         <noscript>
           <style>{`.reveal{opacity:1;transform:none}`}</style>

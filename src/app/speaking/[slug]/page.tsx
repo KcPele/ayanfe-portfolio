@@ -56,16 +56,14 @@ export default async function EventPage({ params }: PageProps<"/speaking/[slug]"
 
       <article>
         <header className="relative isolate overflow-hidden pt-28 pb-14 sm:pt-40 sm:pb-20">
-          <div aria-hidden className="absolute inset-0 -z-10 bg-grid" />
-          <div aria-hidden className="absolute inset-0 -z-10 bg-glow" />
           <Container className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
             <div className="animate-enter">
-              <nav aria-label="Breadcrumb" className="font-mono text-xs text-foreground-subtle">
+              <nav aria-label="Breadcrumb" className="text-xs text-foreground-subtle">
                 <Link href="/speaking" className="hover:text-primary">
                   ← All engagements
                 </Link>
               </nav>
-              <p className="mt-8 font-mono text-xs uppercase tracking-[0.2em] text-secondary-strong">
+              <p className="mt-8 label text-foreground-muted">
                 {event.exhibit && <span className="mr-3 text-primary">Exhibit {event.exhibit}</span>}
                 {event.event} · {event.year}
               </p>
@@ -74,15 +72,15 @@ export default async function EventPage({ params }: PageProps<"/speaking/[slug]"
               </h1>
               <dl className="mt-8 grid grid-cols-2 gap-6 border-t border-border pt-6 text-sm sm:grid-cols-3">
                 <div>
-                  <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-foreground-subtle">Format</dt>
+                  <dt className="label text-foreground-subtle">Format</dt>
                   <dd className="mt-1">{event.format}</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-foreground-subtle">Where</dt>
+                  <dt className="label text-foreground-subtle">Where</dt>
                   <dd className="mt-1">{event.location}</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-foreground-subtle">Year</dt>
+                  <dt className="label text-foreground-subtle">Year</dt>
                   <dd className="mt-1">{event.year}</dd>
                 </div>
               </dl>
@@ -105,7 +103,7 @@ export default async function EventPage({ params }: PageProps<"/speaking/[slug]"
             <p className="font-display text-2xl leading-snug text-balance sm:text-3xl">{event.summary}</p>
             {event.panelists && (
               <p className="mt-6 text-sm text-foreground-muted">
-                <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-foreground-subtle">
+                <span className="label text-foreground-subtle">
                   Alongside
                 </span>
                 <br />
@@ -114,7 +112,7 @@ export default async function EventPage({ params }: PageProps<"/speaking/[slug]"
             )}
             <ul className="mt-6 flex flex-wrap gap-2">
               {event.tags.map((tag) => (
-                <li key={tag} className="rounded-full border border-border px-3 py-1 font-mono text-[11px] text-foreground-muted">
+                <li key={tag} className="rounded-full border border-border px-3 py-1 text-[11px] text-foreground-muted">
                   #{tag}
                 </li>
               ))}
@@ -122,13 +120,13 @@ export default async function EventPage({ params }: PageProps<"/speaking/[slug]"
           </Reveal>
           <div>
             {event.argument && (
-              <Reveal className="rounded-3xl border border-border bg-surface/60 p-7 sm:p-10">
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">What I argued</p>
+              <Reveal className="rounded-3xl border border-border bg-surface p-7 sm:p-10">
+                <p className="label text-primary">What I argued</p>
                 <p className="mt-4 text-lg leading-relaxed text-foreground-muted">{event.argument}</p>
               </Reveal>
             )}
             <Reveal delay={100}>
-              <h2 className="mt-14 font-mono text-xs uppercase tracking-[0.25em] text-foreground-subtle">
+              <h2 className="mt-14 label text-foreground-subtle">
                 From the room · {event.photos.length} photo{event.photos.length > 1 ? "s" : ""}
               </h2>
             </Reveal>
@@ -144,7 +142,7 @@ export default async function EventPage({ params }: PageProps<"/speaking/[slug]"
 
       <section aria-label="More engagements" className="border-t border-border py-20">
         <Container>
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary">§ Keep reading</p>
+          <p className="label text-primary">§ Keep reading</p>
           <ul className="mt-8 grid gap-5 sm:grid-cols-2">
             {[prev, next].map((e) => (
               <li key={e.slug}>

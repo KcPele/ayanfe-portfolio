@@ -43,15 +43,14 @@ export function FeaturedTalks() {
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
                     />
-                    <div aria-hidden className="absolute inset-0 scrim-bottom opacity-60" />
-                    <span className="absolute top-5 left-5 rounded-full bg-primary px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-foreground">
+                    <span className="absolute top-5 left-5 rounded-full bg-primary px-4 py-1.5 label text-primary-foreground">
                       Exhibit {event.exhibit}
                     </span>
                   </Link>
                 </Reveal>
 
                 <Reveal delay={120} className={cn("lg:col-span-6", flip && "lg:order-1")}>
-                  <p className="font-mono text-xs uppercase tracking-[0.2em] text-secondary-strong">
+                  <p className="label text-foreground-muted">
                     {event.event} · {event.year}
                   </p>
                   <h3 className="mt-4 font-display text-3xl leading-tight text-balance sm:text-4xl">
@@ -63,13 +62,13 @@ export function FeaturedTalks() {
                     {event.format} · {event.location}
                     {event.panelists && <> · with {event.panelists.join(", ")}</>}
                   </p>
-                  <div className="mt-6 rounded-2xl border border-border bg-surface/60 p-6">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">What I argued</p>
+                  <div className="mt-6 rounded-2xl border border-border bg-surface p-6">
+                    <p className="label text-primary">What I argued</p>
                     <p className="mt-3 leading-relaxed text-foreground-muted">{event.argument}</p>
                   </div>
                   <ul className="mt-5 flex flex-wrap gap-2">
                     {event.tags.map((tag) => (
-                      <li key={tag} className="rounded-full border border-border px-3 py-1 font-mono text-[11px] text-foreground-muted">
+                      <li key={tag} className="rounded-full border border-border px-3 py-1 text-[11px] text-foreground-muted">
                         #{tag}
                       </li>
                     ))}

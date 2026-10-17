@@ -30,7 +30,7 @@ export function Writing() {
                 rel="noopener noreferrer"
                 className="group flex gap-6 py-8 transition-colors"
               >
-                <span className="font-mono text-sm text-foreground-subtle">0{i + 1}</span>
+                <span className="text-sm text-foreground-subtle">0{i + 1}</span>
                 <span className="flex-1">
                   <span className="block font-display text-2xl leading-tight transition-colors group-hover:text-primary sm:text-3xl">
                     {article.title}

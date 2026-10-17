@@ -42,7 +42,7 @@ export default function BlogPage() {
         kicker="§ Blog"
         title={
           <>
-            Teaching decks, <em className="text-gradient">in full</em>.
+            Teaching decks, <em className="text-primary">in full</em>.
           </>
         }
         description="Each deck is written so the argument is readable on its own. Open any of them for the full slides."
@@ -56,7 +56,7 @@ export default function BlogPage() {
               </Reveal>
             ))}
           </ul>
-          <Reveal className="mt-16 flex flex-col items-start gap-5 rounded-3xl border border-border bg-surface/60 p-8 sm:flex-row sm:items-center sm:justify-between">
+          <Reveal className="mt-16 flex flex-col items-start gap-5 rounded-3xl border border-border bg-surface p-8 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="font-display text-2xl">Prefer long-form?</p>
               <p className="mt-1 text-foreground-muted">Essays and case analysis live on The Law in Crypto.</p>

@@ -6,7 +6,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 export function Practice() {
   return (
     <section id="practice" className="relative scroll-mt-24 overflow-hidden py-20 sm:py-28">
-      <div aria-hidden className="absolute inset-0 -z-10 bg-glow opacity-60" />
       <Container>
         <SectionHeading
           kicker="§ What I do"
@@ -24,9 +23,9 @@ export function Practice() {
               as="li"
               key={area.title}
               delay={(i % 3) * 80}
-              className="group relative flex flex-col rounded-3xl border border-border bg-surface/70 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-primary/60 hover:bg-surface-raised"
+              className="group relative flex flex-col rounded-3xl border border-border bg-surface p-7 transition-all duration-500 hover:-translate-y-1 hover:border-primary/60 hover:bg-surface-raised"
             >
-              <span className="font-mono text-xs text-foreground-subtle">§ {String(i + 1).padStart(2, "0")}</span>
+              <span className="text-xs text-foreground-subtle">§ {String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-6 font-display text-2xl leading-tight transition-colors group-hover:text-primary">
                 {area.title}
               </h3>
@@ -35,7 +34,7 @@ export function Practice() {
                 {area.points.map((point) => (
                   <li
                     key={point}
-                    className="rounded-full border border-border px-3 py-1 font-mono text-[11px] text-foreground-muted"
+                    className="rounded-full border border-border px-3 py-1 text-[11px] text-foreground-muted"
                   >
                     {point}
                   </li>

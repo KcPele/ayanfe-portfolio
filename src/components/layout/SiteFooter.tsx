@@ -11,7 +11,7 @@ async function CopyrightYear() {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-surface/40">
+    <footer className="border-t border-border bg-surface">
       <Container className="grid gap-10 py-14 md:grid-cols-[1.5fr_1fr_1fr]">
         <div>
           <p className="font-display text-2xl">{siteConfig.name}</p>
@@ -21,7 +21,7 @@ export function SiteFooter() {
           <SocialIcons className="mt-6" />
         </div>
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-foreground-subtle">Navigate</p>
+          <p className="label text-foreground-subtle">Navigate</p>
           <ul className="mt-4 space-y-2 text-sm">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -33,7 +33,7 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-foreground-subtle">Get in touch</p>
+          <p className="label text-foreground-subtle">Get in touch</p>
           <a
             href={`mailto:${siteConfig.email}`}
             className="mt-4 block break-all text-sm text-foreground transition-colors hover:text-primary"

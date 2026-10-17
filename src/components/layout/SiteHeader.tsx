@@ -33,7 +33,7 @@ export function SiteHeader() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         scrolled || open
-          ? "border-b border-border bg-background/80 backdrop-blur-xl"
+          ? "border-b border-border bg-background"
           : "border-b border-transparent bg-transparent",
       )}
     >
@@ -47,7 +47,7 @@ export function SiteHeader() {
           </span>
           <span className="hidden flex-col leading-tight sm:flex">
             <span className="font-display text-base">{siteConfig.shortName}</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground-subtle">
+            <span className="label text-foreground-subtle">
               {siteConfig.role}
             </span>
           </span>
@@ -120,7 +120,7 @@ export function SiteHeader() {
                   className="flex items-baseline justify-between border-b border-border py-4 font-display text-4xl"
                 >
                   {link.label}
-                  <span className="font-mono text-xs text-foreground-subtle">0{i + 1}</span>
+                  <span className="text-xs text-foreground-subtle">0{i + 1}</span>
                 </Link>
               </li>
             ))}

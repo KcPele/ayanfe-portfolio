@@ -66,8 +66,16 @@ Everything editable lives in `src/data/`. The pages rebuild from it, so you neve
 
 ## Theme
 
-All colours are CSS variables in `src/app/globals.css`, mapped to Tailwind utilities (`bg-background`, `text-primary`, `border-border`, …). Tailwind's default palette is turned off, so components can only use these tokens.
+The site uses four colours, set once in the palette at the top of `src/app/globals.css`:
 
-- **To change a colour**, edit its variable in the `:root, [data-theme="ink"]` block.
-- **To switch to the light theme**, change `data-theme="ink"` to `data-theme="paper"` in `src/app/layout.tsx`.
-- **To change fonts**, edit the `next/font` imports in `layout.tsx` (heading, body and code fonts).
+| Token | Value | Used for |
+| --- | --- | --- |
+| `--palette-background` | `#0e1116` | Page background |
+| `--palette-surface` | `#16191e` | Cards and panels |
+| `--palette-foreground` | `#fcfdff` | Text |
+| `--palette-accent` | `#c4e3e0` | Pale mint, for buttons, highlights and links (used sparingly) |
+
+Every other token (muted text, borders, hover surfaces, focus ring) is a mix of these four. Tailwind's default palette is turned off, so components can only use the tokens (`bg-background`, `bg-surface`, `text-primary`, `border-border`, …). There are no gradients.
+
+- **To change a colour**, edit its value in the palette block.
+- **To change fonts**, edit the `next/font` imports in `src/app/layout.tsx` (Source Serif 4 for headings, Inter for body).

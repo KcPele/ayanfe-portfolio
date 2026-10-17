@@ -14,7 +14,7 @@ const stages = [
 export function Marquee() {
   const items = [...stages, ...stages];
   return (
-    <section aria-label="Stages" className="border-y border-border bg-surface/40 py-6">
+    <section aria-label="Stages" className="border-y border-border bg-surface py-6">
       <div className="overflow-hidden mask-fade-x">
         <ul className="flex w-max animate-marquee items-center gap-10 hover:[animation-play-state:paused]">
           {items.map((name, i) => (

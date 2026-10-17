@@ -1,80 +1,49 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   THEME TOKENS
+   THEME
    --------------------------------------------------------------------------
-   Every colour on the site comes from these variables. Change a value here
-   and the whole site updates. Components never use raw colour values or
-   Tailwind's default palette (it is disabled below with --color-*: initial).
+   The site uses FOUR colours, defined once in the palette below. Every
+   other token is one of these four, or a mix of them (for borders and
+   muted text). Change a palette value and the whole site follows.
 
-   To switch theme, set data-theme on <html> (see src/app/layout.tsx).
-   "ink" (dark editorial) is the default; "paper" is a light alternative.
+   Components never use raw colour values or Tailwind's default palette
+   (it is disabled below with --color-*: initial). No gradients.
    ========================================================================== */
 
-:root,
-[data-theme="ink"] {
+:root {
   color-scheme: dark;
 
-  /* Surfaces */
-  --background: #0a0c12; /* page background */
-  --surface: #11141d; /* cards, panels */
-  --surface-raised: #181c28; /* hovered / elevated cards */
-  --overlay: #05060a; /* image scrims, lightbox backdrop */
+  /* --- Palette (the only four colours) ---------------------------------- */
+  --palette-background: #0e1116; /* page */
+  --palette-surface: #16191e; /* cards and panels */
+  --palette-foreground: #fcfdff; /* text */
+  --palette-accent: #c4e3e0; /* pale mint, used sparingly */
 
-  /* Text */
-  --foreground: #f4efe4; /* primary text (warm paper) */
-  --foreground-muted: #a7acbb; /* secondary text */
-  --foreground-subtle: #6c7285; /* captions, meta */
+  /* --- Semantic tokens (built only from the palette) --------------------- */
+  --background: var(--palette-background);
+  --surface: var(--palette-surface);
+  --surface-raised: color-mix(in srgb, var(--palette-foreground) 7%, var(--palette-surface));
+  --overlay: var(--palette-background);
 
-  /* Lines */
-  --border: #232838;
-  --border-strong: #353b4f;
+  --foreground: var(--palette-foreground);
+  --foreground-muted: color-mix(in srgb, var(--palette-foreground) 64%, var(--palette-background));
+  --foreground-subtle: color-mix(in srgb, var(--palette-foreground) 42%, var(--palette-background));
 
-  /* Brand: brass / gold, the "law" colour */
-  --primary: #e2b155;
-  --primary-strong: #f2c879;
-  --primary-foreground: #14110a;
+  --border: color-mix(in srgb, var(--palette-foreground) 8%, transparent);
+  --border-strong: color-mix(in srgb, var(--palette-foreground) 16%, transparent);
 
-  /* Brand: electric violet, the "web3" colour (echoes the stage lighting) */
-  --secondary: #8b7bff;
-  --secondary-strong: #a99dff;
-  --secondary-foreground: #0b0a1a;
+  --primary: var(--palette-accent);
+  --primary-strong: color-mix(in srgb, var(--palette-accent) 80%, var(--palette-foreground));
+  --primary-foreground: var(--palette-background);
 
-  /* Supporting */
-  --success: #5fd3a2;
-  --ring: #e2b155;
+  /* Secondary is a quieter text tone, not an extra colour */
+  --secondary: var(--foreground-muted);
+  --secondary-strong: var(--foreground-muted);
+  --secondary-foreground: var(--palette-background);
 
-  /* Decorative background grid lines (keep very faint) */
-  --grid-line: #f4efe408;
-}
-
-[data-theme="paper"] {
-  color-scheme: light;
-
-  --background: #f6f1e5;
-  --surface: #fffdf6;
-  --surface-raised: #ffffff;
-  --overlay: #141a17;
-
-  --foreground: #141a17;
-  --foreground-muted: #4c554f;
-  --foreground-subtle: #7b847e;
-
-  --border: #ded5bf;
-  --border-strong: #c9bd9f;
-
-  --primary: #0d5c34;
-  --primary-strong: #0a4a2a;
-  --primary-foreground: #fffdf6;
-
-  --secondary: #8a6d1f;
-  --secondary-strong: #6f5718;
-  --secondary-foreground: #fffdf6;
-
-  --success: #0d5c34;
-  --ring: #0d5c34;
-
-  --grid-line: #141a170d;
+  --success: var(--palette-accent);
+  --ring: var(--palette-accent);
 }
 
 /* Map tokens to Tailwind utilities (bg-background, text-primary, border-border …) */
@@ -106,10 +75,8 @@
 
   --font-sans: var(--font-body);
   --font-display: var(--font-heading);
-  --font-mono: var(--font-code);
 
   --animate-marquee: marquee 40s linear infinite;
-  --animate-float: float 7s ease-in-out infinite;
   --animate-enter: enter 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
@@ -133,16 +100,6 @@
   }
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 /* ==========================================================================
    BASE
    ========================================================================== */
@@ -162,8 +119,8 @@
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--primary) 35%, transparent);
-    color: var(--foreground);
+    background: var(--primary);
+    color: var(--primary-foreground);
   }
 
   .font-display {
@@ -177,38 +134,17 @@
   }
 }
 
+/* Small uppercase label for kickers and meta */
+@utility label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 /* ==========================================================================
    DECORATIVE UTILITIES (all token driven)
    ========================================================================== */
-
-@utility bg-grid {
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 40px 40px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 75%);
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 75%);
-  @media (width >= 40rem) {
-    background-size: 64px 64px;
-  }
-}
-
-@utility bg-glow {
-  background:
-    radial-gradient(60% 50% at 80% 10%, color-mix(in oklab, var(--secondary) 22%, transparent), transparent 70%),
-    radial-gradient(50% 45% at 10% 90%, color-mix(in oklab, var(--primary) 16%, transparent), transparent 70%);
-}
-
-@utility text-gradient {
-  background: linear-gradient(100deg, var(--primary-strong), var(--primary) 40%, var(--secondary-strong));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-@utility scrim-bottom {
-  background: linear-gradient(to top, color-mix(in oklab, var(--overlay) 92%, transparent), transparent 65%);
-}
 
 @utility mask-fade-x {
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);

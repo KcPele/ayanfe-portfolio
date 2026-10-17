@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function Gallery() {
   return (
-    <section id="gallery" className="scroll-mt-24 border-y border-border bg-surface/30 py-20 sm:py-28">
+    <section id="gallery" className="scroll-mt-24 border-y border-border bg-surface py-20 sm:py-28">
       <Container>
         <SectionHeading
           kicker="§ From the room"

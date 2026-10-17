@@ -7,9 +7,7 @@ import { cn, formatDate, isExternal } from "@/lib/utils";
 function GeneratedCover({ title }: { title: string }) {
   return (
     <div className="absolute inset-0 flex flex-col justify-between bg-surface-raised p-6">
-      <div aria-hidden className="absolute inset-0 bg-grid opacity-70" />
-      <div aria-hidden className="absolute inset-0 bg-glow" />
-      <span className="relative font-mono text-[11px] uppercase tracking-[0.2em] text-primary">Teaching deck</span>
+      <span className="relative label text-primary">Teaching deck</span>
       <p className="relative font-display text-2xl leading-tight text-balance">{title}</p>
     </div>
   );
@@ -19,7 +17,7 @@ export function PostCard({ post, className }: { post: BlogPost; className?: stri
   return (
     <article
       className={cn(
-        "group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface/70 transition-all duration-500 hover:-translate-y-1 hover:border-primary/60",
+        "group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface transition-all duration-500 hover:-translate-y-1 hover:border-primary/60",
         className,
       )}
     >
@@ -37,17 +35,17 @@ export function PostCard({ post, className }: { post: BlogPost; className?: stri
           <GeneratedCover title={post.title} />
         )}
         {post.pages && (
-          <span className="absolute top-4 right-4 rounded-full bg-background/80 px-3 py-1 font-mono text-[11px] text-foreground backdrop-blur">
+          <span className="absolute top-4 right-4 rounded-full bg-background px-3 py-1 text-[11px] text-foreground">
             {post.pages} slides
           </span>
         )}
       </div>
 
       <div className="flex flex-1 flex-col p-6 sm:p-7">
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-[0.15em] text-foreground-subtle">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 label text-foreground-subtle">
           <time dateTime={post.date}>{formatDate(post.date)}</time>
           {post.tags.map((tag) => (
-            <span key={tag} className="text-secondary-strong">
+            <span key={tag} className="text-foreground-muted">
               #{tag}
             </span>
           ))}

@@ -11,7 +11,7 @@ type ButtonProps = {
 
 const variants = {
   primary:
-    "bg-primary text-primary-foreground hover:bg-primary-strong shadow-[0_10px_40px_-12px_var(--primary)]",
+    "bg-primary text-primary-foreground hover:bg-primary-strong",
   outline: "border border-border-strong text-foreground hover:border-primary hover:text-primary",
   ghost: "text-foreground hover:text-primary",
 };

@@ -27,7 +27,7 @@ export default function SpeakingPage() {
         kicker="§ Speaking"
         title={
           <>
-            {events.length} stages, <em className="text-gradient">one argument</em>.
+            {events.length} stages, <em className="text-primary">one argument</em>.
           </>
         }
         description="From the Devconnect main stage in Buenos Aires to founder workshops in Lagos and classrooms across Nigeria, each engagement is a public record of the work."
