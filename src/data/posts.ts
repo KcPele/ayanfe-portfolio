@@ -1,97 +1,70 @@
 import type { BlogPost } from "@/types";
 
-/* -------------------------------------------------------------------------- */
-/*  Blog / teaching decks                                                      */
-/*                                                                             */
-/*  The blog page and the home-page teaser are generated from this list.       */
-/*  To add a deck: copy an object, give it a unique `slug`, and fill in the    */
-/*  fields. Newest `date` shows first.                                         */
-/*                                                                             */
-/*  image    – path under /public (e.g. "/images/blog/privacy-stack.jpg") or   */
-/*             a full https URL. Leave "" to show a generated cover.           */
-/*  gammaUrl – the "Read more" button opens this link in a new tab.            */
-/*                                                                             */
-/*  NOTE: images below are placeholders (event photos) and gammaUrl values     */
-/*  point to gamma.app until the real deck links are added.                    */
-/* -------------------------------------------------------------------------- */
-
 export const posts: BlogPost[] = [
+  {
+    slug: "legal-roadmap-web3-startup",
+    title: "Building a Legal Roadmap for Your Web3 Startup",
+    description:
+      "Staying compliant in Web3, one regulation at a time. A legal roadmap is a strategic guide from formation to new markets: jurisdiction, vehicle and counsel before incorporation; licensing, token issuance, IP, tax and due diligence after.",
+    image: "/images/blog/legal-roadmap-web3-startup.jpg",
+    gammaUrl: "https://gamma.app/docs/mcyep0pxll7trkz",
+    date: "2025-03-14",
+    pages: 12,
+    tags: ["Startups", "Structuring"],
+  },
+  {
+    slug: "tidying-up-your-startup",
+    title: "The Legal and Compliance Aspect of Tidying Up Your Startup",
+    description:
+      "Is your startup investor-ready? The eight areas every founder must get right before a single investor meeting: entity structure, cap table, regulatory posture, governance, IP ownership, financial hygiene, founder agreements and the data room.",
+    image: "/images/blog/tidying-up-your-startup.jpg",
+    gammaUrl: "https://gamma.app/docs/reibbn6nxpx5cp3",
+    date: "2026-06-29",
+    pages: 10,
+    tags: ["Fundraising", "Governance"],
+  },
   {
     slug: "privacy-stack-legal-complexities",
     title: "Navigating the Legal Complexities of Building a Thorough Privacy Stack",
     description:
-      "A privacy stack must protect user dignity and meet regulators at once. Monero shows where absolute anonymity leads, Zcash why optional privacy fails, and Tornado Cash that sanctions can attach to code itself.",
-    image: "/images/events/devconnect-privacy-workshop/workshop-wide.jpg",
-    gammaUrl: "https://gamma.app/",
-    date: "2025-11-19",
+      "A privacy stack must protect user dignity and satisfy regulators at once. Monero shows where absolute anonymity leads, Zcash why optional privacy fails, and Tornado Cash that sanctions can attach to code itself.",
+    image: "/images/blog/privacy-stack-legal-complexities.jpg",
+    gammaUrl: "https://gamma.app/docs/0qqxqlzavpm2smk",
+    date: "2025-10-19",
     pages: 12,
     tags: ["Privacy", "Compliance"],
   },
   {
     slug: "forks-pull-requests-ownership-wars",
-    title: "Forks, Pull Requests and Ownership Wars",
+    title: "Forks, Pull Requests and Ownership Wars: Who Really Owns Open Source?",
     description:
-      "Open-source collaboration raises three legal questions: who owns a contribution, whether on-chain outcomes are enforceable, and when a token sale becomes a securities offering. Jacobsen v Katzer, B2C2 v Quoine and SEC v LBRY.",
-    image: "/images/events/devconnect-open-source-hub/presenting.jpg",
-    gammaUrl: "https://gamma.app/",
-    date: "2025-11-19",
+      "A practical guide to not getting sued by your contributors, your users or the SEC. Who owns a pull request, what an MIT licence does not protect, and how Jacobsen v Katzer, B2C2 v Quoine and SEC v LBRY apply to builders.",
+    image: "/images/blog/forks-pull-requests-ownership-wars.jpg",
+    gammaUrl: "https://gamma.app/docs/hzu2zdwan9roh41",
+    date: "2025-10-18",
     pages: 11,
     tags: ["Open source", "IP"],
   },
   {
-    slug: "legal-roadmap-web3-startup",
-    title: "Building a Legal Roadmap for Your Web3 Startup",
+    slug: "shipping-code-dodging-court",
+    title: "Shipping Code, Dodging Court: Legal Essentials for Web3 Devs",
     description:
-      "A legal roadmap is a strategic instrument from formation to new markets: jurisdiction, vehicle and counsel before incorporation; licensing, token issuance, IP, tax and due diligence after.",
-    image: "/images/events/solana-startup-village/stage-sec-nigeria.jpg",
-    gammaUrl: "https://gamma.app/",
-    date: "2025-03-15",
-    pages: 12,
-    tags: ["Startups", "Structuring"],
+      "What developers should settle before deploying to mainnet: written agreements with collaborators, compliance with integration partners, wallet addresses as personal data, consent and data minimisation, and how SEC Nigeria and the CBN classify assets.",
+    image: "/images/blog/shipping-code-dodging-court.jpg",
+    gammaUrl: "https://gamma.app/docs/gumxw2vyqivp3lt",
+    date: "2025-05-03",
+    tags: ["Developers", "Data protection"],
   },
   {
     slug: "legal-considerations-blockchain-africa",
     title: "Legal Considerations for Blockchain Projects in Africa",
     description:
-      "Africa is many regimes, not one. VASP and payment licences, sandboxes, AML and the travel rule, and fast-moving tax positions in Nigeria, South Africa and Kenya.",
-    image: "/images/events/stellar-west-africa/talk-wide.jpg",
-    gammaUrl: "https://gamma.app/",
-    date: "2025-05-31",
+      "Africa is many regimes, not one. VASP and payment licences, regulatory sandboxes, AML and the travel rule, and fast-moving tax positions in Nigeria, South Africa and Kenya.",
+    image: "/images/blog/legal-considerations-blockchain-africa.jpg",
+    gammaUrl: "https://gamma.app/docs/703qr5vmfeaotcx",
+    date: "2025-05-28",
     pages: 9,
     tags: ["Africa", "Regulation"],
-  },
-  {
-    slug: "legal-101-designers-web3",
-    title: "Legal 101 for Designers in Web3",
-    description:
-      "Define ownership in writing, pick the right licence and record it. Yuga Labs v Ryder Ripps shows why borrowed fonts, icons and imagery carry real litigation risk.",
-    image: "",
-    gammaUrl: "https://gamma.app/",
-    date: "2025-07-10",
-    pages: 10,
-    tags: ["Design", "IP"],
-  },
-  {
-    slug: "legal-side-of-product-building",
-    title: "The Legal Side of Product Building: Contracts, Compliance and Scaling Safely",
-    description:
-      "Founder arrangements, collaboration agreements and data practices that protect the company, its team and its users as the product scales.",
-    image: "/images/events/web3lagos-2026/presenting-1.jpg",
-    gammaUrl: "https://gamma.app/",
-    date: "2025-08-28",
-    pages: 9,
-    tags: ["Product", "Contracts"],
-  },
-  {
-    slug: "tidying-your-startup-legal-compliance",
-    title: "The Legal and Compliance Aspect of Tidying Your Startup",
-    description:
-      "Eight areas to complete before you meet investors: entity and share classes, a regulatory memo, provable governance, IP, financial records, founder agreements and a complete data room.",
-    image: "/images/events/superteamng-legal-workshop/session-slide.jpg",
-    gammaUrl: "https://gamma.app/",
-    date: "2025-06-05",
-    pages: 10,
-    tags: ["Fundraising", "Governance"],
   },
 ];
 

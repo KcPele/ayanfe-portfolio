@@ -21,7 +21,7 @@ export function PostCard({ post, className }: { post: BlogPost; className?: stri
         className,
       )}
     >
-      <div className="relative aspect-[16/10] overflow-hidden">
+      <div className="relative aspect-video overflow-hidden">
         {post.image ? (
           <Image
             src={post.image}
